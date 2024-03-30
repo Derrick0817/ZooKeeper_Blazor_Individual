@@ -13,16 +13,16 @@ namespace ZooKeeper_Blazor
 
             //The SelectMany function flattens the inner lists into a single sequence, and then we use Count() on this sequence to obtain the total count.
             numberOfZones = animalZones.SelectMany(innerlist => innerlist).Count();
-            Console.WriteLine("numberOfZones" + numberOfZones);
+            //Console.WriteLine("numberOfZones" + numberOfZones);
 
             numberOfTypes = CountSpecies(animalZones);
-            Console.WriteLine("numberOfTypes" + numberOfTypes);
+            //Console.WriteLine("numberOfTypes" + numberOfTypes);
 
             numberOfTypeLeastUsed = FindTheLeastOne(animalZones);
-            Console.WriteLine("numberOfTypeLeastUsed" + numberOfTypeLeastUsed);
+            //Console.WriteLine("numberOfTypeLeastUsed" + numberOfTypeLeastUsed);
 
             numberOfTypeMostUsed = FindTheMostOne(animalZones);
-            Console.WriteLine("numberOfTypeMostUsed" + numberOfTypeMostUsed);
+            //Console.WriteLine("numberOfTypeMostUsed" + numberOfTypeMostUsed);
 
             totalScore = (numberOfZones * numberOfTypes * numberOfTypeLeastUsed) / numberOfTypeMostUsed;
             return totalScore;

@@ -42,7 +42,6 @@ namespace ZooKeeper_Blazor
             for (var i = 0; i < 10; i++)
             {
                 activationList.Add(new List<Animal>());//list of List<Animal> with 10 different reaction time
-                Console.WriteLine(activationList);
             }
         }
 
@@ -155,16 +154,18 @@ namespace ZooKeeper_Blazor
             }
             if (occupantType == "corpse") holdingPen.occupant = new Corpse();
 
+            //below is my original code of adding new animal to activationList
+            //int r = holdingPen.occupant.reactionTime - 1;
+            //activationList[r].Add(holdingPen.occupant);
 
-
-            Console.WriteLine($"Holding pen occupant at {holdingPen.occupant.location.x},{holdingPen.occupant.location.y}");
             Console.WriteLine($"Holding pen occupant at {holdingPen.occupant.location.x},{holdingPen.occupant.location.y}");
             //ActivateAnimals(); turns only occur when placed on the board now
             zoneManager.AddZoneWhenFull();//Keeping watching whether current is full and then adding new zone
         }
 
-        static public void ActivateAnimals()
+        static public void ActivateAnimals()           
         {
+            deadAnimal.Clear();
             for (var r = 0; r < 10; r++)
             {
                 foreach (Animal a in activationList[r])
